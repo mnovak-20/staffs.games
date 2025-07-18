@@ -8,8 +8,9 @@ import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
+        <BrowserRouter basename="/staffs.games">
+
+        <App />
         </BrowserRouter>
     </React.StrictMode>
 );
