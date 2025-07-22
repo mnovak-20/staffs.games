@@ -15,7 +15,7 @@ export default function App() {
     return (
         <main className="overflow-x-hidden">
         <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/staffs.games" element={<HomePage />} />
             <Route path="/LoA" element={<LoA />} />
             <Route path="/Staff" element={<Staff />} />
             <Route path="/Games" element={<Games />} />
