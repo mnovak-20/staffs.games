@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Button from "../hooks/Button.jsx"; // adjust path as needed
+import Button from "../hooks/Button.jsx";
 import StaffsverseLogo from "../../Assets/images/staffsverse_logo.png";
 import FortniteLogo from "../../Assets/images/fortnite_logo.svg";
 import BgImage from "../../Assets/images/staffsverse_bg.png";
@@ -22,11 +22,11 @@ export default function Staffsverse() {
             className="relative h-[90vh] w-full bg-cover bg-center flex items-center justify-center text-white"
             style={{ backgroundImage: `url(${BgImage})` }}
         >
-            <div className="text-center px-4 max-w-2xl">
+            <div className="text-center px-4 max-w-3xl">
                 <img
                     src={StaffsverseLogo}
                     alt="Staffsverse"
-                    className="mx-auto max-w-[90%] sm:max-w-[80%] md:max-w-[100%] mb-2"
+                    className="mx-auto max-w-[70%] sm:max-w-[80%] md:max-w-[90%] mb-2"
                 />
                 <img
                     src={FortniteLogo}
@@ -34,13 +34,13 @@ export default function Staffsverse() {
                     className="mx-auto max-w-[40%] sm:max-w-[30%] md:max-w-[20%] mb-6 invert"
                 />
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <Button
                         id="find-out-staffverse"
                         title="Find Out More"
                         href="https://www.staffs.ac.uk/visit/staffsverse"
                         target="_blank"
-                        containerClass="bg-UofS-Yellow-100 hover:bg-UofS-Yellow-50 text-black font-semibold text-xs px-5 py-3 sm:px-6 sm:py-3 rounded-full"
+                        containerClass="bg-UofS-Yellow-100 hover:bg-UofS-Yellow-50 text-black font-semibold text-xs px-6 py-3 rounded-full flex items-center w-[200px]"
                     />
                     <Button
                         id="staffverse-trailer"
@@ -49,16 +49,16 @@ export default function Staffsverse() {
                         onClick={() =>
                             openModal("https://www.youtube.com/embed/IyVKI9aij28?si=chp4PJpTL0pU2VZu")
                         }
-                        containerClass="bg-UofS-Peach-100 hover:bg-UofS-Peach-50 text-black font-semibold text-xs px-5 py-3 sm:px-6 sm:py-3 rounded-full flex items-center gap-2"
+                        containerClass="bg-UofS-Peach-100 hover:bg-UofS-Peach-50 text-black font-semibold text-xs px-6 py-3 rounded-full flex items-center w-[250px]"
                     />
                     <Button
-                        id="staffverse-trailer"
+                        id="staffverse-podcast"
                         title="LoD Podcast"
                         leftIcon={<FaPlay className="text-white" />}
                         onClick={() =>
                             openModal("https://www.youtube.com/embed/tWkRVRj4y3Y?si=PMprum95mFeCj3Mz")
                         }
-                        containerClass="bg-UofS-Lavender-100 hover:bg-UofS-Lavender-50 text-black font-semibold text-xs px-5 py-3 sm:px-6 sm:py-3 rounded-full flex items-center gap-2"
+                        containerClass="bg-UofS-Lavender-100 hover:bg-UofS-Lavender-50 text-black font-semibold text-xs px-6 py-3 rounded-full flex items-center w-[200px]"
                     />
                     <Button
                         id="staffverse-Play"
@@ -66,7 +66,7 @@ export default function Staffsverse() {
                         leftIcon={<TbBrandFortnite className="text-black scale-[200%]" />}
                         href="https://www.fortnite.com/@uniofstaffs/7421-1052-8692"
                         target="_blank"
-                        containerClass="bg-UofS-Neon-100 hover:bg-UofS-Neon-50 text-black font-semibold text-xs px-5 py-3 sm:px-6 sm:py-3 rounded-full flex items-center gap-2"
+                        containerClass="bg-UofS-Neon-100 hover:bg-UofS-Neon-50 text-black font-semibold text-xs px-6 py-3 rounded-full flex items-center w-[300px]"
                     />
                 </div>
 

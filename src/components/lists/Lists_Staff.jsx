@@ -3,6 +3,8 @@ import Button from '../../components/hooks/Button.jsx';
 import LoadingMessage from '../../components/hooks/LoadingMessage.jsx';
 import useCsvData from '../../components/hooks/useCsvData.jsx';
 
+import SU from '../../Assets/images/SU.svg';
+
 import { FaUser, FaUserGraduate } from 'react-icons/fa6';
 import { FaLinkedin, FaGamepad, FaCode, FaPaintBrush, FaMusic } from 'react-icons/fa';
 import { MdAnimation } from 'react-icons/md';
@@ -40,6 +42,7 @@ const parser = (row, index) => {
         research: row.research,
         portfolio: row.portfolio,
         teachOn,
+        profile: row.staffProfile,
     };
 };
 
@@ -120,6 +123,16 @@ const Lists = () => {
                             )}
 
                             <div className="flex flex-col gap-3 mt-3">
+                                {selected.profile && (
+                                    <Button
+                                        id="profile"
+                                        title="Staffordshire Profile"
+                                        leftIcon={<img src={SU} alt="SU Logo" className="w-5 h-5" />}
+                                        containerClass="flex-auto bg-UofS-DarkBlue hover:bg-UofS-DigitalBlue text-white px-6 py-2 text-sm w-[170px]"
+                                        href={selected.profile}
+                                        target="_blank"
+                                    />
+                                )}
                                 {selected.linkedin && (
                                     <Button
                                         id="linkedin"
@@ -150,6 +163,7 @@ const Lists = () => {
                                         target="_blank"
                                     />
                                 )}
+
                             </div>
 
                             {/* Teaches On in Modal */}
