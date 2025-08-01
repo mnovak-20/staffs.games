@@ -2,6 +2,8 @@ import React from 'react'
 import StickyHeader from "../components/StickyHeader.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import BlogList from "../components/BlogList.jsx";
+
 
 const News = () => {
     return (
@@ -10,6 +12,7 @@ const News = () => {
             <StickyHeader />
             <Header />
 
+<BlogList />
             <div className="flex-1"></div>
             <Footer />
 

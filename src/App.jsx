@@ -11,6 +11,13 @@ import News from "./pages/News.jsx";
 import Courses from "./pages/Courses.jsx";
 import Guests from "./pages/Guests.jsx";
 
+
+import BlogList from "./components/BlogList";
+import BlogPost from "./components/BlogPost"; // we’ll make this next
+
+
+
+
 export default function App() {
     return (
         <main className="overflow-x-hidden">
@@ -23,6 +30,9 @@ export default function App() {
             <Route path="/Guests" element={<Guests />} />
             <Route path="/News" element={<News />} />
             <Route path="/Courses" element={<Courses />} />
+            <Route path="/" element={<BlogList />} />
+            <Route path="/:slug" element={<BlogPost />} />
+
         </Routes>
         </main>
 
