@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  repo: mnovak-20/staffs.games
+  branch: gh-pages
+
+
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "DD MMMM YYYY" }
+      - { label: "Short Description", name: "description", widget: "string" }
+      - { label: "Thumbnail Image", name: "thumbnail", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "awards"
+    label: "Awards"
+    folder: "src/content/awards"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "DD MMMM YYYY"}
+      - { label: "Short Description", name: "description", widget: "string" }
+      - { label: "Thumbnail Image", name: "thumbnail", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", default: [ ], summary: "{{fields.tags}}", field: { label: "Tag", name: "tag", widget: "string" } }
+      - { label: "Body", name: "body", widget: "markdown" }
