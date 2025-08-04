@@ -1,13 +1,87 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Papa from 'papaparse';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-// Preload timeline images
 const timelineImages = import.meta.glob('../../Assets/images/timeline/*', { eager: true });
 
 const description =
-    'Alongside our exceptional in-house teaching, Staffordshire University’s Games courses host a wide range of guest lectures from leading voices across the games industry. This timeline showcases just some of the incredible professionals who’ve joined us over the years from artists, designers, and programmers to producers and studio founders.\n' +
-    '\n' +
-    'These sessions offer our students unique, real-world insight into how the industry works, where it’s heading, and what it takes to thrive in it. They’re not just talks, they’re windows into careers, studios, and creative journeys that inspire and inform the next generation of developers.';
+    'Alongside our exceptional in-house teaching, Staffordshire University’s Games courses host a wide range of guest lectures from leading voices across the games industry.\n' +
+    '\nThese sessions offer our students unique, real-world insight into how the industry works, where it’s heading, and what it takes to thrive in it.';
+
+const TIMELINE_TOP_OFFSET = 340;
+const TIMELINE_BOTTOM_OFFSET = 130;
+
+const getYear = (dateStr) => {
+    if (!dateStr) return '';
+    const parts = dateStr.split('/');
+    return `20${parts[2]}`;
+};
+
+const TimelineItem = ({ item, isRight, previousYear, currentYear, idx }) => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 80%", "start 50%"]
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+    const translateY = useTransform(scrollYProgress, [0, 1], [30, 0]);
+
+    return (
+        <React.Fragment>
+            {(idx === 0 || currentYear !== previousYear) && (
+                <div className="relative flex justify-center items-center">
+                    <span className="bg-teal-700 text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">
+                        {currentYear}
+                    </span>
+                </div>
+            )}
+
+            <motion.div
+                ref={ref}
+                style={{ opacity, y: translateY }}
+                className="relative min-h-[150px] flex items-center group transition-transform"
+            >
+                <div
+                    className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
+                    style={{ top: "40px" }}
+                >
+                    <div className={`w-7 h-7 rounded-full shadow-md flex items-center justify-center transition-transform group-hover:scale-110 ${isRight ? "bg-white border border-UofS-Teal-100" : "bg-UofS-Peach-50 dark:bg-Game-Dark border border-UofS-Teal-100 dark:border-teal-800"}`} />
+                    <span className={`mt-4 px-3 py-2 rounded-full text-teal-700 font-bold text-xs sm:text-[16px] shadow-xl flex items-center justify-center transition-transform group-hover:scale-110 ${isRight ? "bg-white border border-UofS-Teal-100" : "bg-UofS-Peach-50 dark:bg-Game-Dark border border-UofS-Teal-100 dark:border-teal-800"}`}>
+                        {item.date}
+                    </span>
+                </div>
+
+                <div
+                    className={`relative sm:w-[400px] w-full px-8 py-8 mt-32 sm:mt-0 rounded-2xl shadow-xl
+                    hover:shadow-2xl hover:-translate-y-1 transition-all duration-300
+                    ${isRight ? "ml-auto sm:mr-[calc(50%+80px)] mr-2 bg-white border border-UofS-Teal-100 dark:bg-gray-900" : "mr-auto sm:ml-[calc(50%+80px)] ml-2 bg-UofS-Peach-50 dark:bg-Game-Dark border border-UofS-Teal-100 dark:border-teal-800"}`}
+                >
+                    <h3 className="tracking-tight">
+                        <span className="font-extrabold text-xl text-teal-700 dark:text-teal-200">{item.name}</span>
+                        <span className="text-lg text-gray-800 dark:text-teal-200"> - {item.studio}</span>
+                    </h3>
+
+                    <p className=" text-lg mb-2 text-teal-700 dark:text-teal-200 tracking-tight">
+                        {item.role}
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-200 text-[16px] whitespace-pre-line mb-8">
+                        {item.description}
+                    </p>
+                    {item.image && (
+                        <div className="mt-4 flex justify-center">
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="rounded-xl shadow max-h-[200px] max-w-full object-contain border border-teal-100 dark:border-teal-900"
+                            />
+                        </div>
+                    )}
+                </div>
+            </motion.div>
+        </React.Fragment>
+    );
+};
 
 const Timeline = () => {
     const [timelineItems, setTimelineItems] = useState([]);
@@ -34,95 +108,82 @@ const Timeline = () => {
                     return {
                         date: row.date,
                         name: row.name,
+                        studio: row.studio,
+                        role: row.role,
                         description: row.description,
                         image,
+                        location: row.location,
+                        event: row.event,
                     };
-                });
+                }).filter(item => item.name);
 
-                setTimelineItems(items.filter(item => item.name));
+                setTimelineItems(items);
                 setLoading(false);
             });
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 720, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const getLineStyle = () => ({
+        top: `${TIMELINE_TOP_OFFSET}px`,
+        bottom: `${TIMELINE_BOTTOM_OFFSET}px`
+    });
 
     return (
-        <div className="container mx-auto w-full h-full bg-Game-Light dark:bg-Game-Dark relative">
+        <div className="w-full min-h-screen py-12 px-20 sm:px-8 bg-Game-Light dark:bg-Game-Dark relative">
             {/* Description */}
-            <div className="flex justify-center text-gray-800 dark:text-gray-300 py-12 px-20 text-center max-w-4xl mx-auto">
-                <p className="text-lg leading-relaxed">{description}</p>
+            <div className="flex justify-center text-gray-900 dark:text-gray-300 pb-20 px-2 sm:px-20 text-center max-w-4xl mx-auto">
+                <p className="text-base sm:text-lg leading-relaxed whitespace-pre-line px-6 py-6">
+                    {description}
+                </p>
             </div>
 
-            <div className="relative wrap p-20">
-                {/* Dotted vertical line */}
-                <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 border-l-2 border-dotted border-gray-400 z-0"></div>
+            {/* Central dashed line */}
+            <div
+                className="absolute left-1/2 -translate-x-1/2 border-l-4 border-dashed border-teal-700 dark:border-teal-700 z-0"
+                style={getLineStyle()}
+            />
 
-                {timelineItems.map((item, index) => {
-                    const isRight = index % 2 === 0;
-                    const bgColor = isRight ? "bg-UofS-Grey" : "bg-UofS-Teal-100";
-                    const textColor = isRight ? "text-gray-800" : "text-gray-300";
+            {/* Timeline events */}
+            <div className="relative z-10 flex flex-col gap-12">
+                {timelineItems.map((item, idx) => {
+                    const currentYear = getYear(item.date);
+                    const previousYear = idx > 0 ? getYear(timelineItems[idx - 1].date) : null;
+                    const isRight = idx % 2 === 0;
 
                     return (
-                        <div
-                            key={index}
-                            className={`mb-12 flex flex-col sm:items-center sm:justify-between w-full relative ${
-                                isRight ? "sm:flex-row" : "sm:flex-row-reverse"
-                            }`}
-                        >
-                            {/* Horizontal connector (desktop only) */}
-                            <div
-                                className={`hidden sm:block absolute top-1/2 transform -translate-y-1/2 h-0.5 bg-gray-500 z-0 ${
-                                    isRight
-                                        ? "left-[calc(50%+2rem)] right-[5%]"
-                                        : "right-[calc(50%+2rem)] left-[5%]"
-                                }`}
-                            />
-
-                            {/* Spacer */}
-                            <div className="order-1 sm:w-5/12" />
-
-                            {/* Date Marker */}
-                            <div className="z-10 flex items-center justify-center order-1 bg-gray-800 shadow-xl w-24 h-8 rounded-full mx-auto sm:mx-0">
-                                <p className="font-semibold text-sm text-white">{item.date}</p>
-                            </div>
-
-                            {/* Content Card */}
-                            <div className={`order-1 ${bgColor} rounded-lg shadow-xl w-full sm:w-5/12 px-6 py-4 z-10 mt-6 sm:mt-0`}>
-                                <h3 className={`mb-3 font-bold text-xl ${textColor}`}>
-                                    {item.name}
-                                </h3>
-                                <p className={`text-sm leading-snug tracking-wide whitespace-pre-line ${textColor}`}>
-                                    {item.description}
-                                </p>
-                                {item.image && (
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        className="mt-4 rounded-xl object-cover w-auto max-h-[200px]"
-                                    />
-                                )}
-                            </div>
-                        </div>
+                        <TimelineItem
+                            key={idx}
+                            item={item}
+                            idx={idx}
+                            isRight={isRight}
+                            previousYear={previousYear}
+                            currentYear={currentYear}
+                        />
                     );
                 })}
+            </div>
 
-                {loading && (
-                    <div className="text-center text-gray-800 font-bold text-2xl py-10">
+            {loading && (
+                <div className="w-full flex justify-center items-center">
+                    <div className="text-center max-w-xl bg-teal-700 text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">
                         Loading timeline...
                     </div>
-                )}
-                {/* Back to top button */}
-                <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 bg-UofS-Red hover:bg-UofS-Yellow-100 text-gray-800 font-bold py-2 px-4 rounded-full shadow-lg z-50"
-                    aria-label="Scroll to top"
-                >
-                    ↑ Top
-                </button>
-            </div>
+                </div>
+            )}
+
+            <motion.button
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                onClick={scrollToTop}
+                className="fixed bottom-6 right-6 bg-UofS-Red hover:bg-UofS-Yellow-100 text-gray-800 font-bold py-2 px-4 rounded-full shadow-lg z-50"
+                aria-label="Scroll to top"
+            >
+                ↑ Top
+            </motion.button>
         </div>
     );
 };

@@ -3,6 +3,8 @@ title: "Developer Mode: Episode 14"
 date: 31 July 2025
 description: "Season Finale of Developer mode is now live! "
 thumbnail: /uploads/developer-mode-01.png
+tags:
+  - Learning
 ---
 Featuring the incredible Jamie Nicholas and Craig Weightman as they explore the creation of VFX for games using the magical power of baked goods! 
 

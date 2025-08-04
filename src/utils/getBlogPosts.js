@@ -15,6 +15,7 @@ const posts = Object.entries(files).map(([path, raw]) => {
         date: attributes.date ? String(attributes.date) : '',
         description: attributes.description || '',
         thumbnail: attributes.thumbnail || '',
+        tags: attributes.tags || [],
         content: body,
     };
 });

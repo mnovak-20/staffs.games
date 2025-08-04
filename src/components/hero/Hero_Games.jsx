@@ -69,7 +69,7 @@ export default function HeroGames() {
             <div className="absolute inset-0 bg-black/50 z-0" />
 
             {/* Top-left content */}
-            <div className="relative whitespace-nowrap text-UofS-Neon-100 z-10 flex flex-col items-start px-10 sm:px-14 md:px-18 lg:px-20 pt-16 sm:pt-24 lg:pt-26 max-w-[800px] scale-110">
+            <div className="relative whitespace-nowrap text-UofS-Red z-10 flex flex-col items-start px-10 sm:px-14 md:px-18 lg:px-20 pt-16 sm:pt-24 lg:pt-26 max-w-[800px] scale-110">
                 <div className="doto-title">
                        Student Games
                    </div>
