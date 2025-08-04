@@ -3,6 +3,7 @@ import StickyHeader from "../components/StickyHeader.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import BlogList from "../components/BlogList.jsx";
+import HeroNews from "../components/hero/Hero_News.jsx";
 
 
 const News = () => {
@@ -11,7 +12,7 @@ const News = () => {
 
             <StickyHeader />
             <Header />
-
+<HeroNews />
 <BlogList />
             <div className="flex-1"></div>
             <Footer />
