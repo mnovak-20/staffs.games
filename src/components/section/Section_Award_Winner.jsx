@@ -23,13 +23,13 @@ const Section_Award_Winner = () => {
 
             {/* Top Right Text Links */}
             <div className="absolute top-10 right-10 md:top-20 md:right-24 text-right space-y-3">
-                <Link to="/lecturers" className="block text-5xl md:text-7xl font-bold text-white hover:underline">
+                <Link to="/staff" className="block text-5xl md:text-7xl font-bold text-white hover:underline">
                     Lecturers
                 </Link>
                 <Link to="/courses" className="block text-5xl md:text-7xl font-bold text-[#5D1C16] hover:underline">
                     Courses
                 </Link>
-                <Link to="/students" className="block text-5xl md:text-7xl font-bold text-white hover:underline">
+                <Link to="/loa" className="block text-5xl md:text-7xl font-bold text-white hover:underline">
                     Students
                 </Link>
                 <Link to="/games" className="block text-5xl md:text-7xl font-bold text-[#5D1C16] hover:underline">
@@ -38,13 +38,12 @@ const Section_Award_Winner = () => {
 
                 {/* Yellow Button */}
                 <div className="py-8">
-                    <Button
+                    <Link to="/awards"><Button
                         id="awards"
                         title="See Awards"
-                        href="https://www.staffs.ac.uk/go/games"
-                        target="_blank"
+
                         containerClass="bg-UofS-Yellow-100 hover:bg-UofS-Yellow-50 text-black font-semibold text-sm px-5 py-3 sm:px-8 sm:py-4 rounded-full"
-                    />
+                    /></Link>
                 </div>
             </div>
         </section>

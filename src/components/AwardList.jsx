@@ -41,8 +41,10 @@ export default function AwardList() {
 
             <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {filteredPosts.map((post, index) => (
+
+
                     <Link
-                        to={`/${post.slug}`}
+                        to={`/awards/${post.slug}`}
                         key={post.slug}
                         className="group block transform transition duration-500 ease-in-out hover:scale-[1.01] opacity-0 animate-fade-in"
                         style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}

@@ -12,7 +12,7 @@ const News = () => {
 
             <StickyHeader />
             <Header />
-<HeroAwards />
+            <HeroAwards />
             <AwardList />
             <div className="flex-1"></div>
             <Footer />

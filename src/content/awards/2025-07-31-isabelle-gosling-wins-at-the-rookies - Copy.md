@@ -4,9 +4,10 @@ date: 28 July 2025
 description: Staffs Games Student Wins Rookies ‘Lost and Found’ Challenge
 thumbnail: https://media.licdn.com/dms/image/v2/D4E22AQGywHs1zWATXQ/feedshare-shrink_800/B4EZhQwovlGUAo-/0/1753701598328?e=1756944000&v=beta&t=VNU15a74ETmGNGYSor3VRrIcGUB4eE-NaRwbOpGs30g
 tags:
-  - winner
+  - student
   - concept art
   - rookies
+  - winner
 ---
 We’re thrilled to share that Isabelle Gosling, a talented concept artist specialising in environment and vehicle design, has been named the winner of The Rookies “Lost and Found” monthly contest with her project, *SCARAB*.
 

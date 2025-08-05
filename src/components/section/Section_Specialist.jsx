@@ -11,12 +11,20 @@ export default function SpecialistSection() {
 
                 {/* Body Text */}
                 <p className="text-2xl tracking-widest">
-                    Whether you want to master stylised creature design, procedural environments, cinematic lighting, or hard surface weapons,
-                    you’ll be taught by someone who specialises in that exact thing.
+                    Whether you're passionate about stylised creature design, procedural environments, cinematic lighting,
+                    or hard surface weapons, or you're drawn to the worlds of level design, game programming,
+                    audio engineering, or production management. At Staffordshire University, you'll be taught
+                    by someone who lives and breathes that exact discipline.
+                    <br></br><br></br>
+                    Our teaching staff aren’t just educators, they’re seasoned specialists with real-world experience
+                    in every corner of game development. From coding complex AI systems and crafting immersive storylines to building
+                    robust infrastructures and designing dynamic soundscapes, we cover the full spectrum of skills
+                    the industry demands. Whatever path you choose, you’ll be supported by experts who know the field inside out
+    and who are dedicated to helping you master it.
                 </p>
 
                 <p className="text-2xl tracking-widest">
-                    Most universities give you a broad overview. <br/><span className="font-bold">We give you a focused pathway.</span>
+                    Most give you a broad overview. <br/><span className="font-bold">We give you a focused pathway.</span>
                 </p>
             </div>
         </section>

@@ -10,7 +10,7 @@ export default function DeveloperMode() {
     };
 
     return (
-        <section className="relative w-full h-[80vh] bg-Game-Dark text-white overflow-hidden py-16 px-6 ">
+        <section className="relative w-full h-[80vh] bg-[#0d0c0b] text-white overflow-hidden py-16 px-6 ">
 
             <img
                 src={BgImage}

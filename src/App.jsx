@@ -12,8 +12,9 @@ import Courses from "./pages/Courses.jsx";
 import Guests from "./pages/Guests.jsx";
 
 
-import BlogList from "./components/BlogList";
-import BlogPost from "./components/BlogPost"; // we’ll make this next
+
+import BlogPost from "./components/BlogPost";
+import AwardsPost from "./components/AwardsPost";
 
 
 
@@ -30,8 +31,9 @@ export default function App() {
             <Route path="/Guests" element={<Guests />} />
             <Route path="/News" element={<News />} />
             <Route path="/Courses" element={<Courses />} />
-            <Route path="/" element={<BlogList />} />
-            <Route path="/:slug" element={<BlogPost />} />
+            <Route path="/awards/:slug"  element={<AwardsPost />} />
+            <Route path="/news/:slug" element={<BlogPost />} />
+
 
         </Routes>
         </main>

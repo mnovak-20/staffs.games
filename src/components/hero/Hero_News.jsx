@@ -14,24 +14,21 @@ const HeroSUIcon = () => (
 
 
 export default function HeroNews() {
-
     return (
         <section
-            className="relative  w-full bg-cover bg-center overflow-hidden h-[20vh] sm:h-[30vh] md:h-[40vh] lg:h-[50vh]"
+            className="relative w-full bg-cover bg-center overflow-hidden h-[25vh] sm:h-[35vh] md:h-[45vh] lg:h-[45vh]"
             style={{ backgroundImage: `url(${BgImage})` }}
         >
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-transparent z-0 dark:bg-gradient-to-br dark:from-black/80 dark:via-black/40 dark:to-transparent "></div>
 
             {/* Top-left content */}
-            <div className="absolute bottom-16 font-bebas tracking-widest text-9xl text-UofS-Yellow-100 z-10 flex flex-col items-start px-10 sm:px-14 md:px-18 lg:px-20 pt-16 sm:pt-24 lg:pt-26 max-w-[800px] scale-110">
-                       News
-
-                   {/*<img*/}
-                   {/*    src={UofSLogo}*/}
-                   {/*     alt="University of Staffordshire"*/}
-                   {/*     className="h-[50px] object-contain"*/}
-                   {/*/>*/}
-                </div>
-
+            <div className="absolute bottom-6 font-bebas tracking-widest text-black dark:text-UofS-Burgundy z-10 flex flex-col items-start px-10 sm:px-14 md:px-18 lg:px-20 pt-16 sm:pt-24 lg:pt-26 max-w-[900px]">
+                <h1 className="text-8xl sm:text-9xl leading-none">News</h1>
+                <p className="text-black dark:text-white text-xs sm:text-xs md:text-lg font-sans mt-2 max-w-[90%] sm:max-w-[60%] bg-Game-Light dark:bg-Game-Dark rounded-xl px-6 py-4 shadow-md ">
+                    Get a glimpse into the day-to-day buzz of our Games Department. From student projects and studio visits to guest lectures, live events, game launches and experimental prototypes. This is your backstage pass to all the creative energy and collaboration happening across our courses.
+                </p>
+            </div>
 
             {/* Bottom Right Ribbon Logo */}
             <a
@@ -42,8 +39,6 @@ export default function HeroNews() {
             >
                 <HeroSUIcon />
             </a>
-
-
         </section>
     );
-};
+}

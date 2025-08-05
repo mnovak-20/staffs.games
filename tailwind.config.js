@@ -58,8 +58,8 @@
 
         },
         Game: {
-          Dark: "#0d0c0b",
-          Light: "#e6dbda",
+          Dark: "#181b1b",
+          Light: "#e4e0e0",
         },
         Social:{
           artstation: "#13aff0",

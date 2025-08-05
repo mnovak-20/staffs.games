@@ -96,7 +96,7 @@ export default function BlogList() {
                         <div className="space-y-6">
                             {posts.map((post, index) => (
                                 <Link
-                                    to={`/${post.slug}`}
+                                    to={`/news/${post.slug}`}
                                     key={post.slug}
                                     className="group flex flex-col sm:flex-row gap-6 items-start bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-in"
                                     style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}

@@ -12,8 +12,8 @@ const News = () => {
 
             <StickyHeader />
             <Header />
-<HeroNews />
-<BlogList />
+            <HeroNews />
+            <BlogList />
             <div className="flex-1"></div>
             <Footer />
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom'
+import { GoHomeFill } from "react-icons/go";
 
 
 
@@ -65,14 +66,14 @@ const TiktokIcon = () => (
 // Nav Menu items
 
 const navigation = [
-        { name: 'Home', to: "/" },
-
+        { name: <GoHomeFill className="size-5 mt-0"/>,
+            to: "/" },
         { name: 'Courses', to: "/Courses" },
-        { name: 'Graduates', to: "/LoA"},
-        { name: 'Staff', to: "/Staff"},
-        { name: 'Guests', to: "/Guests" },
         { name: 'Awards', to: "/Awards" },
+        { name: 'Staff', to: "/Staff"},
         { name: 'Games', to: "/Games" },
+        { name: 'Graduates', to: "/LoA"},
+        { name: 'Guests', to: "/Guests" },
         { name: 'News', to: "/News" },
     ];
 
@@ -88,9 +89,9 @@ export default function Header() {
     return (
 
         <Disclosure as="nav" className="bg-Game-Light dark:bg-Game-Dark">
-            <div className="mx-auto w-screen px-2 sm:px-6">
+            <div className="mx-auto w-screen px-2 lg:px-6">
                 <div className="relative flex h-16 items-center justify-between">
-                    <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                         {/* Mobile menu button*/}
                         <DisclosureButton className="group relative inline-flex items-center justify-center rounded-full p-4 text-UofS-Red hover:text-UofS-Yellow-100">
                             <span className="absolute -inset-0.5" />
@@ -99,9 +100,9 @@ export default function Header() {
                             <XMarkIcon aria-hidden="true" className="hidden size-[40px] group-data-[open]:block" />
                         </DisclosureButton>
                     </div>
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-start">
 
-                        <div className="hidden sm:ml-6 sm:block">
+                        <div className="hidden lg:ml-6 lg:block">
                             <div className="flex space-x-4">
                                 {navigation.map((item) => (
                                     <Link
@@ -163,7 +164,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <DisclosurePanel className="sm:hidden">
+            <DisclosurePanel className="lg:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (
                         <Link

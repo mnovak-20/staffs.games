@@ -11,8 +11,14 @@ export default function CampusSection() {
 
                 {/* Body Text */}
                 <p className="text-2xl tracking-widest">
-                    Whether you want to master stylised creature design, procedural environments, cinematic lighting, or hard surface weapons,
-                    you’ll be taught by someone who specialises in that exact thing.
+                    Step into one of the UK’s most exciting creative spaces for game development.
+                    Our campus is more than just a place to study, it’s a fully equipped production hub where artists,
+                    designers, programmers, and producers work side by side. From high-spec labs and motion capture studios
+                    to VR suites and collaborative breakout spaces, treat the educational space like the studios you’ll one day work in.
+                    <br></br><br></br>
+                    Whether you're crafting concept art, building playable worlds, or fine-tuning your final build for a live showcase,
+                    you'll be surrounded by passionate peers and expert staff who share your drive.
+                    This is where ideas come to life, and careers begin.
                 </p>
 
                 <p className="text-2xl tracking-widest">
