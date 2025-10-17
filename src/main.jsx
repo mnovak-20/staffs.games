@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import './style.css'
 import App from './App.jsx'
 
@@ -9,8 +9,8 @@ window.Buffer = Buffer;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter basename="/staffs.games/">
-        <App />
-        </BrowserRouter>
+        <HashRouter>
+            <App />
+        </HashRouter>
     </React.StrictMode>
 );
