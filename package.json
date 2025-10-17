@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build && echo \"https://mnovak-20.github.io/staffs.games/" > dist/CNAME",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
