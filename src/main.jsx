@@ -9,7 +9,7 @@ window.Buffer = Buffer;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/staffs.games/">
         <App />
         </BrowserRouter>
     </React.StrictMode>
